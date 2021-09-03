@@ -1,1 +1,15 @@
-
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 99dc56564f29e06327a5
+            clientSecret: a1c8b423edfd4373dd45b62514cfdfc47f53e60d
+            redirectUri: http://localhost:8081/callback/
+            scope:
+              - user:email
+              - read:user
+          # google:
+          #   clientId: 593340289989-3lj23qltf9jv0lu6k4uhia8dodhpptdr.apps.googleusercontent.com
+          #   clientSecret: gj5-On8ERH0d70VHjWipHD1_
