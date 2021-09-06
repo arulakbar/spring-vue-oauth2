@@ -1,12 +1,19 @@
 <template>
   <div class="showcase grid">
     <div class="container card">
-      <!-- <div class="carding"> -->
-      <h1 class="title">Login</h1>
-      <a @click="login">
-        <span>Sign in with github</span>
-      </a>
-      <!-- </div> -->
+      <h1 class="title">Sign In to App</h1>
+
+      <button class="button" @click="login">
+        <img class="button-img" src="github-logo.png" alt="" />
+        <span class="button-text"> Sign in with Github</span>
+      </button>
+      <button class="button">
+        <img class="button-img" src="google-logo.png" alt="" />
+        <span class="button-text"> Sign in with Google</span>
+      </button>
+      <div class="or-separator">
+        <div class="or-text">OR</div>
+      </div>
     </div>
   </div>
 </template>
@@ -42,10 +49,7 @@ export default {
   box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
   border-radius: 2px;
   width: 500px;
-  /* display: inline-block; */
   margin-top: 30px;
-  /* vertical-align: middle; */
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   padding: 35px;
@@ -58,15 +62,53 @@ export default {
   color: rgba(0, 0, 0, 0.65);
   align-self: center;
 }
-.card a {
-  margin-bottom: 15px;
-  font-weight: 400;
+
+.button {
+  display: inline-flex;
+  height: 45px;
+  padding: 0;
+  background: none;
+  border: solid 1px rgb(226, 224, 224);
+  outline: none;
+  border-radius: 2px;
+  overflow: hidden;
   font-size: 16px;
-  align-self: center;
+  margin-bottom: 20px;
 }
 
-.card a:hover {
-  color: var(--primary-color);
+.button:hover {
+  color: var(--secondary-color);
+  background: var(--primary-color);
   cursor: pointer;
+}
+
+.button-text,
+.button-img {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.button-img {
+  height: 70%;
+  align-self: center;
+}
+.or-separator {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 1em;
+}
+
+.or-text {
+  position: absolute;
+  left: 46%;
+  top: 0;
+  background: #fff;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.45);
 }
 </style>
