@@ -3,11 +3,11 @@
     <div class="container card">
       <h1 class="title">Sign In to App</h1>
 
-      <button class="button" @click="login">
+      <button class="button" @click="loginGithub">
         <img class="button-img" src="github-logo.png" alt="" />
         <span class="button-text"> Sign in with Github</span>
       </button>
-      <button class="button">
+      <button class="button" @click="loginGoogle">
         <img class="button-img" src="google-logo.png" alt="" />
         <span class="button-text"> Sign in with Google</span>
       </button>
@@ -27,9 +27,15 @@ export default {
     };
   },
   methods: {
-    login() {
+    loginGithub() {
       window.location.href =
-        "http://localhost:8080/oauth2/authorization/github";
+        // "http://localhost:8080/oauth2/authorization/github";
+        "http://localhost:8080/oauth2/authorize/github?redirect_uri=http://localhost:8081/oauth2/redirect";
+    },
+    loginGoogle() {
+      window.location.href =
+        // "http://localhost:8080/oauth2/authorization/google";
+        "http://localhost:8080/oauth2/authorize/google?redirect_uri=http://localhost:8081/oauth2/redirect";
     },
   },
 };

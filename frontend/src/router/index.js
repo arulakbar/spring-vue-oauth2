@@ -15,7 +15,7 @@ const routes = [
     component: Login,
   },
   {
-    path: "/callback",
+    path: "/oauth2/redirect",
     component: Callback,
   },
 ];

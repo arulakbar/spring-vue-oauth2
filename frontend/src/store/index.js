@@ -14,27 +14,19 @@ export default createStore({
   },
   actions: {
     async fetchUser(context) {
-      fetch("http://localhost:8080/v1/home", {
+      await fetch("http://localhost:8080/profile", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
       })
         .then((res) => res.json())
-        .then((data) => context.commit("setUser", data.name));
-    },
-    async setToken(context, payload) {
-      await fetch(
-        baseUrl +
-          "login/oauth2/code/github?code=" +
-          payload.code +
-          "&state=" +
-          payload.state
-      )
-        .then((res) => res.json())
         .then((data) => {
-          localStorage.setItem("token", data.accessToken);
-          console.log(data.accessToken);
+          context.commit("setUser", data.name);
+          // console.log(data);
         });
+    },
+    setToken(context, payload) {
+      localStorage.setItem("token", payload.token);
     },
     logout(context) {
       localStorage.removeItem("token");

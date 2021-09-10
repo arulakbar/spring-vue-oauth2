@@ -13,9 +13,9 @@ import { mapGetters } from "vuex";
 export default {
   name: "Home",
   components: {},
-  async created() {
-    await this.$store.dispatch("fetchUser");
-  },
+  // async created() {
+  //   await this.$store.dispatch("fetchUser");
+  // },
   computed: {
     ...mapGetters(["isAuthenticated"]),
   },

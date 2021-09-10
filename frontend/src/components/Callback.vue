@@ -1,14 +1,16 @@
 <template>
-  <h1>Redirecting...</h1>
+  <h1>Loading...</h1>
 </template>
 
 <script>
 export default {
   async created() {
+    // console.log(this.$route.query);
     await this.$store.dispatch("setToken", {
-      code: this.$route.query.code,
-      state: this.$route.query.state,
+      token: this.$route.query.token,
+      // state: this.$route.query.state,
     });
+    await this.$store.dispatch("fetchUser");
     this.$router.replace("/");
   },
 };

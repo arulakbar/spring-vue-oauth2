@@ -1,4 +1,14 @@
 spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/spring_oauth2
+    username: postgres
+    password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: update
   security:
     oauth2:
       client:
@@ -6,10 +16,19 @@ spring:
           github:
             clientId: 99dc56564f29e06327a5
             clientSecret: a1c8b423edfd4373dd45b62514cfdfc47f53e60d
-            redirectUri: http://localhost:8081/callback/
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope:
               - user:email
               - read:user
-          # google:
-          #   clientId: 593340289989-3lj23qltf9jv0lu6k4uhia8dodhpptdr.apps.googleusercontent.com
-          #   clientSecret: gj5-On8ERH0d70VHjWipHD1_
+          google:
+            clientId: 593340289989-3lj23qltf9jv0lu6k4uhia8dodhpptdr.apps.googleusercontent.com
+            clientSecret: gj5-On8ERH0d70VHjWipHD1_
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+security.jwt.token.secret-key: my-secret-key
+app:
+  tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+  authorizedRedirectUris:
+    - http://localhost:8081/oauth2/redirect
