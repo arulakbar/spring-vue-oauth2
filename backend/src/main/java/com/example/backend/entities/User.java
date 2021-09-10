@@ -11,8 +11,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import lombok.Data;
 
 @Data

@@ -27,7 +27,7 @@ spring:
             scope:
               - email
               - profile
-security.jwt.token.secret-key: my-secret-key
+security.jwt.token.secret-key: 926D96C90030DD58429D2751AC1BDBBC
 app:
   tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
   authorizedRedirectUris:
